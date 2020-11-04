@@ -20,6 +20,7 @@ history = open("CHANGES.rst").read()
 
 tests_require = [
     "pytest-reana>=0.8.0a1,<0.9.0",
+    "pathlib>=1.0.1,<1.1.0",
 ]
 
 extras_require = {

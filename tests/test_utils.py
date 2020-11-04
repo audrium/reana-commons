@@ -12,6 +12,7 @@ import os
 import pkg_resources
 import shutil
 from hashlib import md5
+from pathlib import Path
 
 from pytest import raises
 from pytest_reana.fixtures import sample_workflow_workspace
@@ -102,7 +103,7 @@ def test_calculate_file_access_time(sample_workflow_workspace):
     """Test calculate_file_access_time."""
     sample_workflow_workspace_path = next(sample_workflow_workspace("sample"))
     access_times = calculate_file_access_time(sample_workflow_workspace_path)
-    all_file_paths = list(os.path(sample_workflow_workspace_path).rglob("*.*"))
+    all_file_paths = list(Path(sample_workflow_workspace_path).rglob("*.*"))
     for file_path in all_file_paths:
         assert str(file_path) in access_times
 
